@@ -64,3 +64,11 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## versions (31Jan2025)
+Docker Client: 27.4.0
+Docker Server: 4.37.2 (179585)
+Docker Image: sail-8.4/app
+Composer version: 2.8.5 (inside the Docker container)
+PHP version: 8.4.3 (/usr/bin/php8.4) (inside the Docker container)
+Laravel Framework: 11.39.0
