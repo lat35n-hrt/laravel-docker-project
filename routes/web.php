@@ -9,4 +9,4 @@ Route::get('/', function () {
 Route::get('/products', [MyController::class, 'index'])->name('products.index');
 Route::get('/products/create', [MyController::class, 'create'])->name('products.create');
 Route::post('/products', [MyController::class, 'store'])->name('products.store');
-Route::get('/products/{product}', [MyController::class, 'show'])->name('products.show');
+Route::get('/products/{product}', [MyController::class, 'show'])->where('product', '[0-9]+')->name('products.show'); // ID is numeric
