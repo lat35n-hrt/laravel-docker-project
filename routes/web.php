@@ -6,7 +6,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/products', [MyController::class, 'index'])->name('products.index');
-Route::get('/products/create', [MyController::class, 'create'])->name('products.create');
-Route::post('/products', [MyController::class, 'store'])->name('products.store');
-Route::get('/products/{product}', [MyController::class, 'show'])->where('product', '[0-9]+')->name('products.show'); // ID is numeric
+Route::prefix('products')->group(function () {
+    Route::get('/', [MyController::class, 'index'])->name('products.index');
+    Route::get('/create', [MyController::class, 'create'])->name('products.create');
+    Route::post('/', [MyController::class, 'store'])->name('products.store');
+    Route::get('/{product}', [MyController::class, 'show'])->where('product', '[0-9]+')->name('products.show'); // ID is numeric
+});
