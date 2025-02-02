@@ -35,4 +35,22 @@ class MyController extends Controller
 
         return redirect()->route('products.index')->with('success', 'Product created successfully!'); // Redirect back to the product list
     }
+
+    public function edit(Product $product)
+    {
+        return view('products.edit', compact('product'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric|min:0',
+        ]);
+
+        $product->update($request->all());
+
+        return redirect()->route('products.index')->with('success', 'Book updated successfully!'); // Or a more general message
+    }
 }
