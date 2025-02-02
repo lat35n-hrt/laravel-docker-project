@@ -6,13 +6,16 @@
     </div>
 @endif
 
-<ul>
+<table>
+
     @foreach ($products as $product)
-        <li>
-            <h2>{{ $product->name }}</h2>
-            <p>{{ $product->description }}</p>
-            <p>Price: ${{ $product->price }}</p>
-            <a href="/products/{{$product->id}}">Show</a>
-        </li>
+        <tr>
+            <td>{{ $product->name }}</td>
+            <td>{{ $product->description }}</td>
+            <td>{{ $product->price }}</td>
+            <td><a href="/products/{{$product->id}}">Show</a></td>
+            <td><a href="{{ route('products.edit', $product->id) }}">Edit</a></td>
+        </tr>
     @endforeach
-</ul>
+
+</table>
