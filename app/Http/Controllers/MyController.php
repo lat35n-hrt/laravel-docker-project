@@ -53,4 +53,11 @@ class MyController extends Controller
 
         return redirect()->route('products.index')->with('success', 'Book updated successfully!'); // Or a more general message
     }
+
+    public function destroy(Product $product)
+    {
+    $product->delete();
+
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully!');
+    }
 }
